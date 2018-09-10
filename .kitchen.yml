@@ -1,0 +1,26 @@
+---
+driver:
+  name: ec2
+
+provisioner:
+  name: dummy
+
+platforms:
+  - name: default
+    driver:
+      image_id: <%= ENV['AMI_NAME'] %>
+      spot_price: 0.0035
+      instance_type: t2.micro
+
+transport:
+  name: ssh
+  username: ec2-user
+
+verifier:
+  name: inspec
+
+suites:
+  - name: default
+    verifier:
+      inspec_tests:
+        - nginx_test.rb
