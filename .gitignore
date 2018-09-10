@@ -6,3 +6,6 @@ packer_cache/
 
 #Kitchen files
 .kitchen/
+
+#The manifest file
+manifest.json
